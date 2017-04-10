@@ -1,19 +1,24 @@
 
 function result(number){
+  var pingArray=[];
   for(var index = number; index <= number; index++){
-if(index % 5 === 0 && index % 3 === 0) {
-  $("ul").append('<li>' + 'PING-PONG' + "</li>");
+    if(0 >= number){
+    alert("Pick Another Number");
+  }
+else if(index % 5 === 0 && index % 3 === 0) {
+  pingArray.push("ping-pong");
   }
  else if (index % 5 === 0) {
-  $("ul").append('<li>' +'PONG'+ "</li>");
+  pingArray.push("pong");
   }
 else if(index % 3 === 0) {
-  $("ul").append('<li>' +'PING'+ "</li>");
+pingArray.push("ping");
   }
 else{
-  $("ul").append("<li>" + index + "</li>");
+pingArray.push(index);
   }
-
+  return pingArray;
+console.log(pingArray);
 };
 };
 
@@ -24,12 +29,13 @@ else{
 $(document).ready(function() {
   $("#form").submit(function(event) {
     event.preventDefault();
+
     var input= parseInt($("#userNum").val());
-    var number= input;
-    if(0 >= number){
-    alert("Pick Another Number");
-  };
-  result(number);
+    var number= result(input);
+
+
+  $("#dog").text(number);
+
 
   });
 });
